@@ -1,18 +1,28 @@
 
 
 const canvas = document.querySelector(".canvas");
-const numOfDivs = 16*16;
 
+const numOfDivs = prompt("choose the number of divs")
 
 for(let i = 0 ; i < numOfDivs ; i++ ){
 
-    let div = document.createElement("div");
-    div.classList.add("grid");
-    canvas.appendChild(div);
+    let column = document.createElement("div");
+
+    column.classList.add("gridColumn");
+
+    for(let j = 0 ; j < numOfDivs ; j++){
+
+        let row = document.createElement("div");
+        row.classList.add("gridRow");
+        column.appendChild(row);
+    }
+
+    canvas.appendChild(column);
 }
 
 
-const cells = document.querySelectorAll(".grid");
+
+const cells = document.querySelectorAll(".gridRow");
 
 cells.forEach(cell => { 
     
@@ -20,6 +30,8 @@ cells.forEach(cell => {
     
     
 });
+
+
 
 
 function setBGColor(cell){
