@@ -1,0 +1,58 @@
+
+*,*::before,*::after{
+
+    box-sizing: border-box;
+ 
+
+}
+
+* {
+
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.container {
+
+    height: 100vh;
+    
+}
+
+.top {
+
+    display: flex;
+    justify-content: center; 
+     
+}
+
+.middle {
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+   
+}
+
+.canvas {
+
+    width: 500px;
+    border: 5px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+
+
+.grid {
+
+    min-width: 30px;
+    flex: 1;
+    height: 20px;
+    border: 1px  solid black;
+
+
+}
