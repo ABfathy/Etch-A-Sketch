@@ -6,9 +6,9 @@ const numOfDivs = 16*16;
 
 for(let i = 0 ; i < numOfDivs ; i++ ){
 
-    let Div = document.createElement("div");
-    Div.classList.add("grid")
-    canvas.appendChild(Div);
+    let div = document.createElement("div");
+    div.classList.add("grid");
+    canvas.appendChild(div);
 }
 
 
@@ -22,9 +22,6 @@ cells.forEach(cell => {
 });
 
 
-
-
-
 function setBGColor(cell){
 
     cell.style.backgroundColor = "black";
@@ -33,9 +30,9 @@ function setBGColor(cell){
 
     if(currentOpacity < 1){
 
-        cell.style.opacity = `${currentOpacity + 0.25}`; 
+        cell.style.opacity = Math.min(currentOpacity + 0.25 , 1); 
 
     }
-    console.log(currentOpacity);
+    
     
 }
