@@ -16,23 +16,50 @@ const size = document.querySelector(".size");
 
 function marker(){
 
+    
+    
     const cells = document.querySelectorAll(".gridRow");
 
-    cells.forEach(cell => { 
+    cells.forEach(cell => {
+        cell.addEventListener("mouseover", () => {
+            
+            setBGColor(cell);
         
-        cell.addEventListener("mouseover", () => setBGColor( cell , color ) )
-        
+        });
+    });
+}
+
+
+function canvasCreator(numOfDivs){
+
+    for(let i = 0 ; i < numOfDivs ; i++ ){
     
-});}
+        let column = document.createElement("div");
+    
+        column.classList.add("gridColumn");
+    
+        for(let j = 0 ; j < numOfDivs ; j++){
+    
+            let row = document.createElement("div");
 
-
+            row.classList.add("gridRow");
+            
+            column.appendChild(row);
+            
+        }
+    
+        canvas.appendChild(column);
+    }
+    
+    }
+    
+    
 
 function chosenButton (button){
 
     if (button === size ){
 
        numOfDivs = prompt("Choose a Grid size! (0 -> 100) ");
-
        canvasCreator(numOfDivs);
        marker();
        
@@ -44,10 +71,15 @@ function chosenButton (button){
     }
 
     if (button === clear){
-        
         const cells = document.querySelectorAll(".gridRow");
-        cells.forEach(cell => {cell.style.backgroundColor = "rgb(217, 250, 250)";})
+        cells.forEach(cell => {
+        
+        cell.style.backgroundColor = "rgb(217, 250, 250)";
+        cell.style.setProperty("--cell-opacity", 0);
+        
+        })
 
+    
     }
 
 }
@@ -75,29 +107,6 @@ buttons.forEach( button  => {
 }) 
 
 
-function canvasCreator(numOfDivs){
-
-for(let i = 0 ; i < numOfDivs ; i++ ){
-
-    let column = document.createElement("div");
-
-    column.classList.add("gridColumn");
-
-    for(let j = 0 ; j < numOfDivs ; j++){
-
-        let row = document.createElement("div");
-        row.classList.add("gridRow");
-        column.appendChild(row);
-    }
-
-    canvas.appendChild(column);
-}
-
-}
-
-
-
-
 
 function resetClickAnimation(button){
 
@@ -114,17 +123,11 @@ function clickAnimation(button){
 }
 
 
-function setBGColor(cell , color){
-
-    cell.style.backgroundColor = color;
-
-    let currentOpacity = Number(cell.style.opacity);
-
-    if(currentOpacity < 1){
-
-        cell.style.opacity = Math.min(currentOpacity + 0.3 , 1); 
-
+function setBGColor(cell) {
+    let currentOpacity = Number(cell.style.getPropertyValue("--cell-opacity")) || 0;
+    if (currentOpacity < 1) {
+        currentOpacity = Math.min(currentOpacity + 0.3, 1);
+        cell.style.setProperty("--cell-opacity", currentOpacity);
+        cell.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity})`;
     }
-    
-    
 }
