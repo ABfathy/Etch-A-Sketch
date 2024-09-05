@@ -39,6 +39,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;  
+    
 }
 
 .canvas {
@@ -47,7 +48,6 @@
     height: 500px; 
     border: 5px solid rgb(238, 238, 238);
     display: flex;
-    flex-wrap: wrap;
     box-shadow: 1px 1px 20px 13px rgb(115, 96, 124);  
     
 }
@@ -81,5 +81,13 @@ li {
     border: 1px solid rgb(139, 139, 139);
     box-shadow: 1px 1px 2px 1px rgb(115, 96, 124);
     border-radius: 10px;
+    cursor: pointer;
+    transition: 120ms;
+}
 
+.clicked {
+
+    background-color: rgb(196, 194, 194);
+    scale: 1.1;
+    box-shadow: 2px 2px 4px 2px rgb(115, 96, 124);
 }
