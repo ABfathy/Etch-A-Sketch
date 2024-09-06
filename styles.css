@@ -44,8 +44,8 @@
 
 .canvas {
 
-    width: 500px;
-    height: 500px; 
+    width: 600px;
+    height: 600px; 
     border: 5px solid rgb(238, 238, 238);
     display: flex;
     box-shadow: 1px 1px 20px 13px rgb(115, 96, 124);  
@@ -86,6 +86,7 @@ li {
     border-radius: 10px;
     cursor: pointer;
     transition: 120ms;
+   
 }
 
 .clicked {
@@ -93,4 +94,12 @@ li {
     background-color: rgb(196, 194, 194);
     scale: 1.1;
     box-shadow: 2px 2px 4px 2px rgb(115, 96, 124);
+}
+
+.bottom {
+
+    text-align: center; 
+    padding: 50px;
+    font-size: 1.4rem;
+    color: rgb(115, 96, 124);
 }
