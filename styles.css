@@ -17,7 +17,7 @@
 .container {
 
     font-family: 'Courier New', Courier, monospace ;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgba(217, 250, 250,1);
     display: flex;
     flex-direction: column;
